@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-recess-order"
+  ],
+  "ignoreFiles": [
+    "**/*.ts"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.tsx"
+      ],
+      "customSyntax": "@stylelint/postcss-css-in-js"
+    }
+  ],
+  "rules": {
+    "function-no-unknown": null,
+    "value-keyword-case": null
+  }
+}
