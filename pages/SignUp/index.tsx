@@ -1,20 +1,14 @@
+import useInput from '@hooks/useInput';
 import React, { useCallback, useState } from 'react';
 import { Header,Form, Label, Input, Error, Button, Success, LinkContainer } from './style.styled';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [nickname, setNickname] = useState('');
+  const [email, onChangeEmail] = useInput('');
+  const [nickname, onChangeNickname] = useInput('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
   const [mismathError, setMismathError] = useState(false);
   // useCallback으로 감싸지 않아도 동작을 안하는건 아니지만 SignUp 재실행되면서 매번 함수들이 재생성되는걸 막기위해서 감싸준다. (리렌더링이 많이 일어남, 디버깅하기가 어려움)
-  const onChangeEmail = useCallback((e) => {
-    setEmail(e.target.value);
-  }, []);
-
-  const onChangeNickname = useCallback((e) => {
-    setNickname(e.target.value);
-  }, []);
 
   const onChangePassword = useCallback((e) => {
     setPassword(e.target.value);
